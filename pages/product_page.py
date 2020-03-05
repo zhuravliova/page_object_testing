@@ -22,3 +22,11 @@ class ProductPage(BasePage):
     def should_be_message_about_adding_product(self):
         assert self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text == self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
 
+    def guest_cant_see_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADD_MESSAGE)
+
+    def guest_cant_see_success_message(self):
+        assert  self.is_not_element_present(*ProductPageLocators.ADD_MESSAGE)
+
+    def message_disappeared_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.ADD_MESSAGE) 
